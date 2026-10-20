@@ -2,7 +2,7 @@
 
 Status: specification, 2026-10-20. No code yet. Decided with the operator: MCP is a transport, not a face, and it is
 not only for faces — any described effect is a set of tools — so it is its own repository, on okay-simple alone, as
-okay-face is. okay-face's `face-mcp` becomes a thin bridge onto this.
+okay-faces is. okay-faces' `face-mcp` becomes a thin bridge onto this.
 
 ## Overview
 
@@ -13,7 +13,7 @@ them; a server may ask the client's user for structured input (elicitation) or t
 - An AGENT PROGRAM performs the effect `Tool` — `Call(name, arguments): Json` — and does not know whether the tool is a
   local function, an MCP server over stdio, or a table of canned answers in a test: the handler decides. That is the
   thesis of the family, stated in okay's specs/mcp.md: "an MCP server is another Tool handler, and its JSON-RPC framing
-  is our parser plus Schema". Here the parser is okay-simple's `json` module and the schema okay-face's `Shape` (or any
+  is our parser plus Schema". Here the parser is okay-simple's `json` module and the schema okay-faces' `Shape` (or any
   JSON Schema value).
 - A SERVER is a program that answers a stream of requests: given `Tools` — the specs and a program per call — and
   optionally resources, prompts and the ability to elicit, `serve(link)(tools)` runs the protocol. Its transport is
@@ -120,11 +120,11 @@ A client program under `local` and under `Session.handler` is the same program: 
 1. `rpc` and `link` with `scripted`; tests.
 2. `server`: `serve` with tools; tests; a `stdio` run against Claude Code or the inspector.
 3. `client`: `connect`, `Session`, `local`; the law test over `channel`.
-4. Resources, elicitation (okay-face's `Consent` needs it); `face-mcp` in okay-face rewritten as a bridge.
+4. Resources, elicitation (okay-faces' `Consent` needs it); `face-mcp` in okay-faces rewritten as a bridge.
 5. `http`.
 
 ## Build
 
-sbt as okay-face's: cross 3.3.8 / 2.13.18, JVM always, JS and Native when asked; `okay-effects-json` needs okay-simple
+sbt as okay-faces': cross 3.3.8 / 2.13.18, JVM always, JS and Native when asked; `okay-effects-json` needs okay-simple
 0.1.1 — until it is released, `publishLocal` from okay-simple's master. Modules `rpc`, `link`, `server`, `client`,
 `stdio`; artifacts `okay-mcp-*`; `io.github.okay-effects`, Apache-2.0.
