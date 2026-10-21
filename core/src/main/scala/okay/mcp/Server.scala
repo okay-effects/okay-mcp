@@ -30,7 +30,7 @@ final case class ResourceContent(uri: String, mimeType: String, text: String) {
 /** THE SERVER over any implementation: `serve(server)` the loop over `Link` — `initialize`, then requests until the link
  * closes; `dispatch` one message to its replies, pure in its state, so a loopback can run it; `elicit` a question to
  * the client's user, from inside a tool's call */
-class Servers[F <: Effects](implicit implementation: F) {
+class Servers[F <: Effects with Singleton](implicit implementation: F) {
   val fx: F = implementation
   import fx._
   val links: Links[fx.type] = new Links[fx.type]()(fx)

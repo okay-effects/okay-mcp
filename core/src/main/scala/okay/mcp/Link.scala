@@ -11,7 +11,7 @@ object Link {
   final case class Receive[X](answer: Option[String] => X) extends Link[X]
 }
 
-class Links[F <: Effects](implicit implementation: F) {
+class Links[F <: Effects with Singleton](implicit implementation: F) {
   val fx: F = implementation
   import fx._
 

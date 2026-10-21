@@ -8,7 +8,7 @@ import okay.effects.json.Json
 sealed trait Tool[X]
 object Tool { final case class Call[X](c: ToolCall, answer: ToolResult => X) extends Tool[X] }
 
-class Clients[F <: Effects](implicit implementation: F) {
+class Clients[F <: Effects with Singleton](implicit implementation: F) {
   val fx: F = implementation
   import fx._
   val links: Links[fx.type] = new Links[fx.type]()(fx)
