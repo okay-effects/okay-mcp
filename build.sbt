@@ -11,8 +11,8 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 ThisBuild / licenses := List("Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.txt"))
 ThisBuild / scalaVersion := scala3
 ThisBuild / resolvers += "okay-effects" at "https://okay-effects.github.io/okay-simple/maven"
-/** okay-simple's snapshot, with the json and shape modules, published locally until 0.1.1 is released */
-val okayEffects = "0.1.1-SNAPSHOT"
+/** okay-simple, from its Pages repository */
+val okayEffects = "0.1.1"
 
 def crossBuilt: Seq[Def.Setting[?]] = Seq(
   crossScalaVersions := Seq(scala3, scala2),
