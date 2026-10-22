@@ -6,6 +6,14 @@ stdout, an HTTP stream later, or a scripted pair in a test. JSON-RPC as data, JS
 [okay-simple](https://github.com/okay-effects/okay-simple) alone, for Scala 3 and 2.13; the transport
 [okay-faces](https://github.com/okay-effects/okay-faces)'s MCP face stands on.
 
+```scala-sbt
+resolvers ++= Seq("okay-effects" at "https://okay-effects.github.io/okay-simple/maven",
+  "okay-mcp" at "https://okay-effects.github.io/okay-mcp/maven")
+libraryDependencies += "io.github.okay-effects" %% "okay-mcp" % "0.1.0"
+```
+
+`%%%` for Scala.js and Scala Native. Releases: [RELEASING.md](RELEASING.md).
+
 Status: `core` in — JSON-RPC as data, `Link` with stdio, scripted and loopback handlers, the server (initialize, tools,
 resources, `list_changed`, ping, elicitation from inside a call), the client (`Tool`, `local`, a `Session`), the law
 held by a test on the machine and on Free, both compilers. [okay-faces](https://github.com/okay-effects/okay-faces)'s MCP
