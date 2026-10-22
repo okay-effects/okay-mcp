@@ -7,7 +7,7 @@ import Platforms._
 ThisBuild / organization := "io.github.okay-effects"
 ThisBuild / organizationName := "okay-effects"
 ThisBuild / homepage := Some(url("https://github.com/okay-effects/okay-mcp"))
-ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / version := "0.1.0"
 ThisBuild / licenses := List("Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.txt"))
 ThisBuild / scalaVersion := scala3
 ThisBuild / resolvers += "okay-effects" at "https://okay-effects.github.io/okay-simple/maven"
